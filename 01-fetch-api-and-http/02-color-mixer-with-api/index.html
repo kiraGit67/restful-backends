@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Mixer with API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div id="color-sliders">
+            <div>
+                <label for="red">r</label>
+                <input type="range" min="0" max="255" step="1" name="red" id="red" class="red" value="255" />
+            </div>
+            <div>
+                <label for="green">g</label>
+                <input type="range" min="0" max="255" step="1" name="green" id="green" class="green" value="105" />
+            </div>
+            <div>
+                <label for="red">b</label>
+                <input type="range" min="0" max="255" step="1" name="blue" id="blue" class="blue" value="180" />
+            </div>
+        </div>
+        <div id="color-display">
+            <p id="hex-value">#ff69b4</p>
+            <button id="random-color">Random Color</button>
+        </div>
+    </header>
+    <script src="script.js"></script>
+</body>
+
+</html>
