@@ -20,3 +20,6 @@ console.log(person.firstName + " " + person.lastName);
 console.log(
   person.firma + "\n" + person.address + "\n" + person.zip + " " + person.city
 );
+
+// % source ~/.nvm/nvm.sh
+// nvm
