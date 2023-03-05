@@ -14,11 +14,24 @@ function createListEntry(quote, author) {
   return listElement;
 }
 
+function localStorageQuoteData(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
+}
+
 const showListButton = document.querySelector("#show-list");
+const quoteList = document.querySelector("#quote-list");
+
+if (
+  localStorage.getItem("quote") !== "" &&
+  localStorage.getItem("author") !== ""
+) {
+  const defaultQuote = JSON.parse(localStorage.getItem("quote"));
+  const defaultAuthor = JSON.parse(localStorage.getItem("author"));
+  const defaultListElement = createListEntry(defaultQuote, defaultAuthor);
+  quoteList.appendChild(defaultListElement);
+}
 
 showListButton.addEventListener("click", function () {
-  const quoteList = document.querySelector("#quote-list");
-
   fetch("https://dummy-apis.netlify.app/api/quote")
     .then((response) => {
       console.log("response", response);
@@ -31,5 +44,8 @@ showListButton.addEventListener("click", function () {
 
       const newEntry = createListEntry(jsonData.quote, jsonData.author);
       quoteList.append(newEntry);
+
+      localStorageQuoteData("quote", jsonData.quote);
+      localStorageQuoteData("author", jsonData.author);
     });
 });
