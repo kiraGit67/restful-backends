@@ -16,19 +16,20 @@ function getToDoList(apiUrl) {
       //data.forEach((item) => toDoListItems.push(item));
       toDoListItems = [...data];
 
-      data.forEach((item) => {
+      toDoListItems.forEach((item) => {
         const listElement = document.createElement("li");
         const listElementText = document.createTextNode(item.title);
         const listElementCheckBox = document.createElement("input");
         listElementCheckBox.type = "checkbox";
         listElementCheckBox.checked = item.completed;
 
-        if (listElementCheckBox.checked === true) {
+        if (item.completed === true) {
           listElement.classList.add("toDoDone");
         }
 
         listElementCheckBox.addEventListener("change", function () {
           listElement.classList.toggle("toDoDone");
+          item.completed = !item.completed;
         });
 
         listElement.append(listElementCheckBox, listElementText);
