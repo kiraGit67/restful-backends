@@ -22,11 +22,16 @@ const showListButton = document.querySelector("#show-list");
 const quoteList = document.querySelector("#quote-list");
 
 if (
-  localStorage.getItem("quote") !== "" &&
-  localStorage.getItem("author") !== ""
+  localStorage.getItem("quote") !== null &&
+  localStorage.getItem("author") !== null
 ) {
   const defaultQuote = JSON.parse(localStorage.getItem("quote"));
   const defaultAuthor = JSON.parse(localStorage.getItem("author"));
+  const defaultListElement = createListEntry(defaultQuote, defaultAuthor);
+  quoteList.appendChild(defaultListElement);
+} else {
+  const defaultQuote = "Make it work. Make it work better.";
+  const defaultAuthor = "Unknown";
   const defaultListElement = createListEntry(defaultQuote, defaultAuthor);
   quoteList.appendChild(defaultListElement);
 }
