@@ -20,7 +20,7 @@ function localStorageQuoteData(key, value) {
 
 const showListButton = document.querySelector("#show-list");
 const quoteList = document.querySelector("#quote-list");
-
+/*
 if (
   localStorage.getItem("quote") !== null &&
   localStorage.getItem("author") !== null
@@ -35,6 +35,13 @@ if (
   const defaultListElement = createListEntry(defaultQuote, defaultAuthor);
   quoteList.appendChild(defaultListElement);
 }
+*/
+const defaultQuote =
+  JSON.parse(localStorage.getItem("quote")) ||
+  "Make it work. Make it work better.";
+const defaultAuthor = JSON.parse(localStorage.getItem("author")) || "Unknown";
+const defaultListElement = createListEntry(defaultQuote, defaultAuthor);
+quoteList.appendChild(defaultListElement);
 
 showListButton.addEventListener("click", function () {
   fetch("https://dummy-apis.netlify.app/api/quote")
