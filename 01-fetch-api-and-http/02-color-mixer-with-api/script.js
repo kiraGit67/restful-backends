@@ -13,7 +13,15 @@ const inputRed = document.querySelector("#red");
 const inputGreen = document.querySelector("#green");
 const inputBlue = document.querySelector("#blue");
 
-if (localStorage.getItem("color") !== "") {
+document.body.style.backgroundColor =
+  JSON.parse(localStorage.getItem("color")) || "#ff69b4";
+
+randomColorButton.style.backgroundColor =
+  JSON.parse(localStorage.getItem("color")) || "#ff69b4";
+
+hexValue.innerHTML = JSON.parse(localStorage.getItem("color")) || "#ff69b4";
+/*
+if (localStorage.getItem("color") !== null) {
   console.log(localStorage.getItem("color"));
   document.body.style.backgroundColor = JSON.parse(
     localStorage.getItem("color")
@@ -22,12 +30,20 @@ if (localStorage.getItem("color") !== "") {
     localStorage.getItem("color")
   );
   hexValue.innerHTML = JSON.parse(localStorage.getItem("color"));
+} else {
+  document.body.style.backgroundColor = "#ff69b4";
+  randomColorButton.style.backgroundColor = "#ff69b4";
+  hexValue.innerHTML = "#ff69b4";
 }
-
-if (localStorage.getItem("rgb") !== {}) {
+*/
+if (localStorage.getItem("rgb") !== null) {
   inputRed.value = JSON.parse(localStorage.getItem("rgb")).r;
   inputGreen.value = JSON.parse(localStorage.getItem("rgb")).g;
   inputBlue.value = JSON.parse(localStorage.getItem("rgb")).b;
+} else {
+  inputRed.value = "255";
+  inputGreen.value = "105";
+  inputBlue.value = "180";
 }
 
 function colorMixer() {
