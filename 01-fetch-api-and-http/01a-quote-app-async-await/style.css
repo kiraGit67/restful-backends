@@ -1,0 +1,59 @@
+:root {
+  font-size: 16px;
+}
+
+html,
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+header {
+  width: 100%;
+  padding: 2rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: azure;
+  border-bottom: 1px solid dodgerblue;
+}
+
+main {
+  padding: 3rem 2.5rem;
+}
+
+h1 {
+  font-weight: normal;
+  color: dodgerblue;
+}
+
+button {
+  padding: 1rem 1.5rem;
+  font-size: 1.5rem;
+  background-color: dodgerblue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+blockquote {
+  font-size: 1.75rem;
+  margin-left: 0;
+  border-left: 5px solid dodgerblue;
+  padding-left: 2rem;
+}
+
+cite {
+  font-size: 1.25rem;
+}
+
+cite::before {
+  content: "- ";
+  color: dodgerblue;
+  font-weight: bold;
+}
